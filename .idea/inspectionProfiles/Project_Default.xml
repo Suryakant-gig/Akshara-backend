@@ -1,0 +1,20 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <list>
+          <option value="langchain-huggingface" />
+          <option value="transformers" />
+          <option value="huggingface-hub" />
+          <option value="python-dotenv" />
+          <option value="numpy" />
+          <option value="scikit-learn" />
+          <option value="requests" />
+          <option value="PyPDF2" />
+          <option value="tiktoken" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

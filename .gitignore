@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+backend/akshara.db
+.venv/
+venv/
+*.log
+.DS_Store
+node_modules/

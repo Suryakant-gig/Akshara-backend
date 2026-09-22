@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akshara — Classroom Screening</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+
+  <header class="topbar">
+    <div class="brand">Akshara</div>
+    <div class="tag">Classroom screening aid — not a diagnosis</div>
+  </header>
+
+  <!-- STEP 0: SETUP -->
+  <section id="step-setup" class="step active">
+    <h1>Start a new screening session</h1>
+    <label>Child's alias / roll number (no full names needed)
+      <input type="text" id="childAlias" placeholder="e.g. Student-14">
+    </label>
+    <label>Language
+      <select id="language">
+        <option value="telugu">Telugu</option>
+      </select>
+    </label>
+    <button class="primary" onclick="app.startSession()">Begin</button>
+    <p class="disclaimer">This tool flags children who may benefit from a full expert assessment.
+      It does not diagnose dyslexia, dysgraphia, or any other condition.</p>
+  </section>
+
+  <!-- STEP 1: HANDWRITING -->
+  <section id="step-handwriting" class="step">
+    <h1>Step 1 of 3 — Handwriting</h1>
+    <p>Ask the child to copy the words below onto the pad using a finger or stylus.</p>
+    <div id="passageWords" class="passage-words"></div>
+    <canvas id="hwCanvas" width="600" height="220"></canvas>
+    <div class="button-row">
+      <button onclick="app.clearCanvas()">Clear</button>
+      <button class="primary" onclick="app.nextFromHandwriting()">Next →</button>
+    </div>
+  </section>
+
+  <!-- STEP 2: READ ALOUD -->
+  <section id="step-speech" class="step">
+    <h1>Step 2 of 3 — Read Aloud</h1>
+    <p>Ask the child to read this passage aloud. Tap record, then stop when they finish.</p>
+    <div id="passageText" class="passage-text"></div>
+    <div class="button-row">
+      <button id="recordBtn" onclick="app.toggleRecording()">● Record</button>
+      <span id="recordStatus"></span>
+    </div>
+    <details class="manual-transcript">
+      <summary>Optional: type what the child actually said (pilot testing only)</summary>
+      <textarea id="manualTranscript" rows="2" placeholder="Leave blank if unsure — the system will use the expected passage text instead."></textarea>
+    </details>
+    <div class="button-row">
+      <button class="primary" onclick="app.nextFromSpeech()">Next →</button>
+    </div>
+  </section>
+
+  <!-- STEP 3: NUMERACY -->
+  <section id="step-numeracy" class="step">
+    <h1>Step 3 of 3 — Quick Numeracy Check</h1>
+    <div id="numeracyQuestions"></div>
+    <div class="button-row">
+      <button class="primary" onclick="app.submitSession()">Finish & See Report</button>
+    </div>
+  </section>
+
+  <!-- STEP 4: REPORT -->
+  <section id="step-report" class="step">
+    <h1>Screening Report</h1>
+    <div id="reportContent"></div>
+    <button onclick="app.reset()">Start a New Session</button>
+  </section>
+
+</div>
+<script src="app.js"></script>
+</body>
+</html>

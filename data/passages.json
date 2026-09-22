@@ -1,0 +1,19 @@
+{
+  "_note": "Sample content for demo/testing only. A real deployment must have this Telugu text reviewed by a language educator and, ideally, a speech-language pathologist before use with children — these passages are illustrative, not clinically validated.",
+  "telugu": {
+    "passage_id": "tel_passage_01",
+    "text": "అమ్మ ఇంటికి వచ్చింది. నాన్న school కి వెళ్ళాడు. పాప పుస్తకం చదివింది.",
+    "translation_note": "Mother came home. Father went to school. The girl read a book. Contains one deliberate English code-switch ('school') to test the code-switch filter.",
+    "target_words": ["అమ్మ", "ఇంటికి", "వచ్చింది", "నాన్న", "వెళ్ళాడు", "పాప", "పుస్తకం", "చదివింది"]
+  },
+  "numeracy": {
+    "task_id": "num_task_01",
+    "questions": [
+      {"prompt": "5 + 3 = ?", "answer": 8},
+      {"prompt": "9 - 4 = ?", "answer": 5},
+      {"prompt": "2 x 6 = ?", "answer": 12},
+      {"prompt": "Which is bigger: 7 or 12?", "answer": "12"},
+      {"prompt": "10 - 7 = ?", "answer": 3}
+    ]
+  }
+}
