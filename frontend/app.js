@@ -1,6 +1,6 @@
 // Akshara frontend — plain JS, no build step required.
 // Point API_BASE at wherever the FastAPI backend is running.
-const API_BASE = "http://localhost:8000";
+const API_BASE = "https://akshara-backend-4czy.onrender.com";
 
 const app = {
   state: {
