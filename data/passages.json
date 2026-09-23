@@ -1,0 +1,37 @@
+{
+  "_note": "Sample content for demo/testing only. A real deployment must have these passages reviewed by language educators and, ideally, speech-language pathologists before use with children — these are illustrative, not clinically validated.",
+  "telugu": {
+    "passage_id": "tel_passage_01",
+    "text": "అమ్మ ఇంటికి వచ్చింది. నాన్న school కి వెళ్ళాడు. పాప పుస్తకం చదివింది.",
+    "translation_note": "Mother came home. Father went to school. The girl read a book. Contains one deliberate English code-switch ('school') to test the code-switch filter.",
+    "target_words": ["అమ్మ", "ఇంటికి", "వచ్చింది", "నాన్న", "వెళ్ళాడు", "పాప", "పుస్తకం", "చదివింది"]
+  },
+  "hindi": {
+    "passage_id": "hin_passage_01",
+    "text": "माँ घर आई। पिता स्कूल गए। बच्ची ने पुस्तक पढ़ी।",
+    "translation_note": "Mother came home. Father went to school. The girl read a book. Includes one English word 'school' to check code-switch handling.",
+    "target_words": ["माँ", "घर", "आई", "पिता", "स्कूल", "बच्ची", "पुस्तक", "पढ़ी"]
+  },
+  "tamil": {
+    "passage_id": "tam_passage_01",
+    "text": "அம்மா வீட்டுக்கு வந்தார். அப்பா பள்ளிக்கு சென்றார். சிறுமி புத்தகத்தைப் படித்தார்.",
+    "translation_note": "Mother came home. Father went to school. The girl read a book. Includes one English word 'school' to test code-switch filtering.",
+    "target_words": ["அம்மா", "வீட்டுக்கு", "வந்தார்", "அப்பா", "பள்ளிக்கு", "சென்றார்", "சிறுமி", "புத்தகத்தைப்"]
+  },
+  "kannada": {
+    "passage_id": "kan_passage_01",
+    "text": "ಅಮ್ಮ ಮನೆಗೆ ಬಂದಳು. ನಾನ್ನ school ಗೆ ಹೋದನು. ಹುಡುಗಿಯು ಪುಸ್ತಕವನ್ನು ಓದಿದಳು.",
+    "translation_note": "Mother came home. Father went to school. The girl read a book. Includes one English word 'school' for code-switch testing.",
+    "target_words": ["ಅಮ್ಮ", "ಮನೆಗೆ", "ಬಂದಳು", "ನಾನ್ನ", "ಸ್ಕೂಲ್", "ಹುಡುಗಿಯು", "ಪುಸ್ತಕವನ್ನು", "ಓದಿದಳು"]
+  },
+  "numeracy": {
+    "task_id": "num_task_01",
+    "questions": [
+      {"prompt": "5 + 3 = ?", "answer": 8},
+      {"prompt": "9 - 4 = ?", "answer": 5},
+      {"prompt": "2 x 6 = ?", "answer": 12},
+      {"prompt": "Which is bigger: 7 or 12?", "answer": "12"},
+      {"prompt": "10 - 7 = ?", "answer": 3}
+    ]
+  }
+}
