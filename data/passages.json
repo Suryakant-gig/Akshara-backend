@@ -1,11 +1,16 @@
 {
+<<<<<<< HEAD
   "_note": "Sample content for demo/testing only. A real deployment must have these passages reviewed by language educators and, ideally, speech-language pathologists before use with children — these are illustrative, not clinically validated.",
+=======
+  "_note": "Sample content for demo/testing only. A real deployment must have this Telugu text reviewed by a language educator and, ideally, a speech-language pathologist before use with children — these passages are illustrative, not clinically validated.",
+>>>>>>> 1b6b45549fd36e347fb91ade279cad86a6326095
   "telugu": {
     "passage_id": "tel_passage_01",
     "text": "అమ్మ ఇంటికి వచ్చింది. నాన్న school కి వెళ్ళాడు. పాప పుస్తకం చదివింది.",
     "translation_note": "Mother came home. Father went to school. The girl read a book. Contains one deliberate English code-switch ('school') to test the code-switch filter.",
     "target_words": ["అమ్మ", "ఇంటికి", "వచ్చింది", "నాన్న", "వెళ్ళాడు", "పాప", "పుస్తకం", "చదివింది"]
   },
+<<<<<<< HEAD
   "hindi": {
     "passage_id": "hin_passage_01",
     "text": "माँ घर आई। पिता स्कूल गए। बच्ची ने पुस्तक पढ़ी।",
@@ -24,6 +29,8 @@
     "translation_note": "Mother came home. Father went to school. The girl read a book. Includes one English word 'school' for code-switch testing.",
     "target_words": ["ಅಮ್ಮ", "ಮನೆಗೆ", "ಬಂದಳು", "ನಾನ್ನ", "ಸ್ಕೂಲ್", "ಹುಡುಗಿಯು", "ಪುಸ್ತಕವನ್ನು", "ಓದಿದಳು"]
   },
+=======
+>>>>>>> 1b6b45549fd36e347fb91ade279cad86a6326095
   "numeracy": {
     "task_id": "num_task_01",
     "questions": [

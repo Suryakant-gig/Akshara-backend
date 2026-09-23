@@ -20,6 +20,7 @@ import re
 from typing import List
 from schemas import CodeSwitchResult, CodeSwitchSpan
 
+<<<<<<< HEAD
 SCRIPT_RANGES = {
     "telugu": (0x0C00, 0x0C7F),
     "tamil": (0x0B80, 0x0BFF),
@@ -68,6 +69,23 @@ def analyze_code_switching(text: str, primary_script: str = "telugu") -> CodeSwi
     elif primary not in SCRIPT_RANGES:
         primary = "telugu"
 
+=======
+TELUGU_RANGE = (0x0C00, 0x0C7F)
+
+
+def _script_of_token(token: str) -> str:
+    telugu_chars = sum(1 for ch in token if TELUGU_RANGE[0] <= ord(ch) <= TELUGU_RANGE[1])
+    latin_chars = sum(1 for ch in token if ch.isalpha() and ch.isascii())
+    digit_chars = sum(1 for ch in token if ch.isdigit())
+    if telugu_chars == 0 and latin_chars == 0 and digit_chars == 0:
+        return "other"
+    if digit_chars >= telugu_chars and digit_chars >= latin_chars:
+        return "digit"
+    return "telugu" if telugu_chars >= latin_chars else "latin"
+
+
+def analyze_code_switching(text: str, primary_script: str = "telugu") -> CodeSwitchResult:
+>>>>>>> 1b6b45549fd36e347fb91ade279cad86a6326095
     tokens = [t for t in re.split(r"(\s+)", text) if t.strip()]
     spans: List[CodeSwitchSpan] = []
     for tok in tokens:
@@ -77,7 +95,11 @@ def analyze_code_switching(text: str, primary_script: str = "telugu") -> CodeSwi
         return CodeSwitchResult(spans=[], code_switch_ratio=0.0, excluded_token_count=0,
                                  notes="No text provided to check.")
 
+<<<<<<< HEAD
     non_primary = [s for s in spans if s.script not in (primary, "digit", "other")]
+=======
+    non_primary = [s for s in spans if s.script not in (primary_script, "digit", "other")]
+>>>>>>> 1b6b45549fd36e347fb91ade279cad86a6326095
     ratio = len(non_primary) / len(spans)
 
     return CodeSwitchResult(
@@ -85,6 +107,10 @@ def analyze_code_switching(text: str, primary_script: str = "telugu") -> CodeSwi
         code_switch_ratio=round(ratio, 3),
         excluded_token_count=len(non_primary),
         notes=(f"{len(non_primary)} of {len(spans)} tokens are outside the primary script "
+<<<<<<< HEAD
                f"({primary}) and are excluded from the handwriting/speech risk score rather "
+=======
+               f"({primary_script}) and are excluded from the handwriting/speech risk score rather "
+>>>>>>> 1b6b45549fd36e347fb91ade279cad86a6326095
                f"than counted against the child."),
     )

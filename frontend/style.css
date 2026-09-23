@@ -1,6 +1,9 @@
 :root {
   --primary: #2b6cb0;
+<<<<<<< HEAD
   --primary-dark: #1f4b7a;
+=======
+>>>>>>> 1b6b45549fd36e347fb91ade279cad86a6326095
   --bg: #f7f8fa;
   --card: #ffffff;
   --text: #1a202c;
@@ -8,8 +11,11 @@
   --low: #2f855a;
   --watch: #c05621;
   --recommend: #c53030;
+<<<<<<< HEAD
   --panel: #edf2f7;
   --border: #dfe7f1;
+=======
+>>>>>>> 1b6b45549fd36e347fb91ade279cad86a6326095
   font-family: -apple-system, "Segoe UI", Roboto, "Noto Sans Telugu", sans-serif;
 }
 
@@ -32,7 +38,11 @@ body {
 .brand { font-size: 22px; font-weight: 700; }
 .tag { font-size: 13px; opacity: 0.9; }
 
+<<<<<<< HEAD
 #app { max-width: 820px; margin: 0 auto; padding: 24px; }
+=======
+#app { max-width: 720px; margin: 0 auto; padding: 24px; }
+>>>>>>> 1b6b45549fd36e347fb91ade279cad86a6326095
 
 .step { display: none; background: var(--card); border-radius: 12px; padding: 28px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
 .step.active { display: block; }
@@ -50,11 +60,17 @@ button {
   background: white; cursor: pointer; font-size: 14px;
 }
 button.primary { background: var(--primary); color: white; border: none; }
+<<<<<<< HEAD
 button.primary:hover { background: var(--primary-dark); }
 button:disabled { opacity: 0.5; cursor: not-allowed; }
 
 .button-row { display: flex; gap: 10px; margin-top: 16px; align-items: center; flex-wrap: wrap; }
 .stack-mobile { flex-wrap: wrap; }
+=======
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.button-row { display: flex; gap: 10px; margin-top: 16px; align-items: center; }
+>>>>>>> 1b6b45549fd36e347fb91ade279cad86a6326095
 
 #hwCanvas {
   border: 2px dashed #cbd5e0; border-radius: 10px; touch-action: none;
@@ -88,6 +104,7 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
 
 .section-title { font-weight: 700; margin-top: 22px; margin-bottom: 6px; }
 .report-notes { font-size: 12px; color: var(--muted); margin-top: 4px; }
+<<<<<<< HEAD
 
 .dashboard-header { display: flex; justify-content: space-between; align-items: center; }
 .session-list { margin-top: 18px; display: grid; gap: 12px; }
@@ -109,3 +126,5 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
   .dashboard-header button { margin-top: 10px; }
   .session-card-top { display: block; }
 }
+=======
+>>>>>>> 1b6b45549fd36e347fb91ade279cad86a6326095

@@ -24,6 +24,7 @@ app = FastAPI(title="Akshara Screening API", version="0.1.0-mvp")
 
 app.add_middleware(
     CORSMiddleware,
+<<<<<<< HEAD
     allow_origins=[
         "http://localhost:5500",
         "http://127.0.0.1:5500",
@@ -32,6 +33,9 @@ app.add_middleware(
         "http://0.0.0.0:5500",
     ],
     allow_credentials=True,
+=======
+    allow_origins=["*"],  # tighten before any real deployment
+>>>>>>> 1b6b45549fd36e347fb91ade279cad86a6326095
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -39,16 +43,20 @@ app.add_middleware(
 DATA_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "passages.json")
 
 
+<<<<<<< HEAD
 def _load_passage_data():
     with open(DATA_PATH, encoding="utf-8") as f:
         return json.load(f)
 
 
+=======
+>>>>>>> 1b6b45549fd36e347fb91ade279cad86a6326095
 @app.on_event("startup")
 def startup():
     db.init_db()
 
 
+<<<<<<< HEAD
 @app.get("/api/languages")
 def get_languages():
     data = _load_passage_data()
@@ -101,6 +109,15 @@ def sessions_summary():
                 "summary": report.get("risk", {}).get("summary", "")
             })
     return {"total_sessions": len(rows), "risk_counts": totals, "recent": recent}
+=======
+@app.get("/api/passage")
+def get_passage(language: str = "telugu"):
+    with open(DATA_PATH, encoding="utf-8") as f:
+        data = json.load(f)
+    if language not in data:
+        raise HTTPException(404, f"No passage available for language '{language}'")
+    return {"passage": data[language], "numeracy": data["numeracy"]}
+>>>>>>> 1b6b45549fd36e347fb91ade279cad86a6326095
 
 
 @app.post("/api/session/submit", response_model=FullReport)
@@ -113,6 +130,7 @@ async def submit_session(
     numeracy_total: int = Form(...),
     manual_transcript: str = Form(""),    # optional teacher-typed transcript for code-switch check
 ):
+<<<<<<< HEAD
     if not child_alias or not child_alias.strip():
         raise HTTPException(400, "child_alias is required")
     if not handwriting_image or "data:image" not in handwriting_image[:20]:
@@ -122,6 +140,8 @@ async def submit_session(
     if numeracy_correct < 0 or numeracy_total <= 0:
         raise HTTPException(400, "numeracy values must be valid")
 
+=======
+>>>>>>> 1b6b45549fd36e347fb91ade279cad86a6326095
     # --- Handwriting ---
     hw_result = analyze_handwriting_image(handwriting_image)
 
@@ -189,9 +209,13 @@ def list_sessions():
 
 @app.get("/api/health")
 def health():
+<<<<<<< HEAD
     return {
         "status": "ok",
         "service": "akshara",
         "database": "sqlite",
         "features": ["handwriting", "speech", "code_switch", "teacher_dashboard"],
     }
+=======
+    return {"status": "ok"}
+>>>>>>> 1b6b45549fd36e347fb91ade279cad86a6326095

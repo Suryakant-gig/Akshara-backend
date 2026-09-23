@@ -3,9 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
 <meta name="theme-color" content="#2b6cb0">
 <title>Akshara — Classroom Screening</title>
 <link rel="manifest" href="manifest.webmanifest">
+=======
+<title>Akshara — Classroom Screening</title>
+>>>>>>> 1b6b45549fd36e347fb91ade279cad86a6326095
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -25,6 +29,7 @@
     <label>Language
       <select id="language">
         <option value="telugu">Telugu</option>
+<<<<<<< HEAD
         <option value="hindi">Hindi</option>
         <option value="tamil">Tamil</option>
         <option value="kannada">Kannada</option>
@@ -35,10 +40,16 @@
       <button onclick="app.loadDemoCase()">Load demo case</button>
       <button onclick="app.showDashboard()">View previous sessions</button>
     </div>
+=======
+      </select>
+    </label>
+    <button class="primary" onclick="app.startSession()">Begin</button>
+>>>>>>> 1b6b45549fd36e347fb91ade279cad86a6326095
     <p class="disclaimer">This tool flags children who may benefit from a full expert assessment.
       It does not diagnose dyslexia, dysgraphia, or any other condition.</p>
   </section>
 
+<<<<<<< HEAD
   <section id="step-dashboard" class="step">
     <div class="dashboard-header">
       <h1>Teacher dashboard</h1>
@@ -47,6 +58,8 @@
     <div id="sessionHistoryList" class="session-list"></div>
   </section>
 
+=======
+>>>>>>> 1b6b45549fd36e347fb91ade279cad86a6326095
   <!-- STEP 1: HANDWRITING -->
   <section id="step-handwriting" class="step">
     <h1>Step 1 of 3 — Handwriting</h1>
@@ -90,11 +103,15 @@
   <section id="step-report" class="step">
     <h1>Screening Report</h1>
     <div id="reportContent"></div>
+<<<<<<< HEAD
     <div class="button-row report-actions">
       <button class="primary" onclick="app.saveCurrentReportToLocalStorage()">Save locally</button>
       <button onclick="window.print()">Print report</button>
       <button onclick="app.reset()">Start a New Session</button>
     </div>
+=======
+    <button onclick="app.reset()">Start a New Session</button>
+>>>>>>> 1b6b45549fd36e347fb91ade279cad86a6326095
   </section>
 
 </div>

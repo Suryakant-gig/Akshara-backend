@@ -1,9 +1,14 @@
 // Akshara frontend — plain JS, no build step required.
+<<<<<<< HEAD
 const API_BASE = window.__API_BASE__ || (
   window.location.hostname === "127.0.0.1" || window.location.hostname === "0.0.0.0"
     ? "http://127.0.0.1:8000"
     : "http://localhost:8000"
 );
+=======
+// Point API_BASE at wherever the FastAPI backend is running.
+const API_BASE = "https://akshara-backend-4czy.onrender.com";
+>>>>>>> 1b6b45549fd36e347fb91ade279cad86a6326095
 
 const app = {
   state: {
@@ -13,6 +18,7 @@ const app = {
     audioChunks: [],
     audioBlob: null,
     isRecording: false,
+<<<<<<< HEAD
     childAlias: "",
     language: "telugu",
     manualTranscript: "",
@@ -21,10 +27,13 @@ const app = {
     demoMode: false,
     currentReport: null,
     currentSummary: "",
+=======
+>>>>>>> 1b6b45549fd36e347fb91ade279cad86a6326095
   },
 
   showStep(id) {
     document.querySelectorAll(".step").forEach(s => s.classList.remove("active"));
+<<<<<<< HEAD
     const step = document.getElementById(id);
     if (step) step.classList.add("active");
   },
@@ -224,6 +233,9 @@ const app = {
       this.renderNumeracy();
       this.showStep("step-handwriting");
     }
+=======
+    document.getElementById(id).classList.add("active");
+>>>>>>> 1b6b45549fd36e347fb91ade279cad86a6326095
   },
 
   async startSession() {
@@ -233,6 +245,7 @@ const app = {
     this.state.childAlias = alias;
     this.state.language = language;
 
+<<<<<<< HEAD
     try {
       const resp = await fetch(`${API_BASE}/api/passage?language=${language}`);
       if (!resp.ok) throw new Error("Backend unavailable");
@@ -251,6 +264,20 @@ const app = {
       if (fallback) this.loadDemoCase();
       else alert("Could not load passage from server. Run the backend locally or use demo mode.");
     }
+=======
+    const resp = await fetch(`${API_BASE}/api/passage?language=${language}`);
+    if (!resp.ok) { alert("Could not load passage from server. Is the backend running?"); return; }
+    const data = await resp.json();
+    this.state.passage = data.passage;
+    this.state.numeracyTask = data.numeracy;
+
+    document.getElementById("passageWords").textContent = data.passage.text;
+    document.getElementById("passageText").textContent = data.passage.text;
+
+    this.setupCanvas();
+    this.renderNumeracy();
+    this.showStep("step-handwriting");
+>>>>>>> 1b6b45549fd36e347fb91ade279cad86a6326095
   },
 
   // ---------- Handwriting canvas ----------
@@ -362,7 +389,11 @@ const app = {
     form.append("numeracy_correct", correct);
     form.append("numeracy_total", total);
     form.append("manual_transcript", this.state.manualTranscript || "");
+<<<<<<< HEAD
     form.append("audio", this.state.audioBlob, this.state.demoMode ? "demo.wav" : "clip.webm");
+=======
+    form.append("audio", this.state.audioBlob, "clip.webm");
+>>>>>>> 1b6b45549fd36e347fb91ade279cad86a6326095
 
     const btn = document.querySelector('#step-numeracy .primary');
     btn.disabled = true; btn.textContent = "Analyzing...";
@@ -373,7 +404,10 @@ const app = {
       const report = await resp.json();
       this.renderReport(report);
       this.showStep("step-report");
+<<<<<<< HEAD
       await this.loadDashboard();
+=======
+>>>>>>> 1b6b45549fd36e347fb91ade279cad86a6326095
     } catch (err) {
       alert("Submission failed: " + err.message);
     } finally {
@@ -382,6 +416,7 @@ const app = {
   },
 
   // ---------- Report rendering ----------
+<<<<<<< HEAD
   getTeacherSummary(report) {
     const level = report.risk.level;
     const signals = [
@@ -413,6 +448,9 @@ const app = {
 
   renderReport(report) {
     this.state.currentReport = report;
+=======
+  renderReport(report) {
+>>>>>>> 1b6b45549fd36e347fb91ade279cad86a6326095
     const el = document.getElementById("reportContent");
     const riskLabels = { low: "Low concern", watch: "Worth watching", recommend_assessment: "Recommend assessment" };
 
@@ -422,6 +460,7 @@ const app = {
         <div class="signal-bar-bg"><div class="signal-bar-fill" style="width:${Math.round(s.severity * 100)}%"></div></div>
       </div>`).join("");
 
+<<<<<<< HEAD
     const summary = report.risk.summary || "No summary available.";
     const actionSummary = this.getTeacherSummary(report);
     const nextStep = report.risk.recommended_next_step || "Keep observing.";
@@ -432,6 +471,13 @@ const app = {
       <p style="margin-top:14px"><strong>Teacher summary:</strong> ${actionSummary}</p>
       <p><strong>System summary:</strong> ${summary}</p>
       <p><strong>Suggested next step:</strong> ${nextStep}</p>
+=======
+    el.innerHTML = `
+      <p><strong>${report.child_alias}</strong></p>
+      <span class="risk-badge risk-${report.risk.level}">${riskLabels[report.risk.level]}</span>
+      <p style="margin-top:14px">${report.risk.summary}</p>
+      <p><strong>Suggested next step:</strong> ${report.risk.recommended_next_step}</p>
+>>>>>>> 1b6b45549fd36e347fb91ade279cad86a6326095
 
       <div class="section-title">Handwriting signals</div>
       ${signalRows(report.handwriting.signals)}
@@ -455,16 +501,22 @@ const app = {
   reset() {
     this.state.audioBlob = null;
     this.state.handwritingDataUrl = null;
+<<<<<<< HEAD
     this.state.manualTranscript = "";
     this.state.demoMode = false;
     this.state.currentReport = null;
+=======
+>>>>>>> 1b6b45549fd36e347fb91ade279cad86a6326095
     document.getElementById("childAlias").value = "";
     document.getElementById("recordStatus").textContent = "";
     this.showStep("step-setup");
   },
 };
+<<<<<<< HEAD
 
 window.addEventListener("DOMContentLoaded", () => {
   app.clearDemoMarkers();
   app.loadDashboard();
 });
+=======
+>>>>>>> 1b6b45549fd36e347fb91ade279cad86a6326095
